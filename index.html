@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="main">
+        <div class="scoreboard">
+            <div class="container">
+                <div class="right">
+                    <div class="location"></div>
+                    <div class="date"></div>
+                    <div class="temp"><img src="Image/thermometer1.svg"><span class="temp-span"></span> </div>
+                </div>
+                <div class="left">
+                    <div class="container-now">
+                        <div class="temp-now"></div>
+                        <div class="clods-now"></div>
+                    </div>
+                    <div class="clouds-description"></div>
+                </div>
+            </div>
+        </div>
+        <div class="details">
+            <div class="param"><img src="Image/pressure1-icon.svg">Pressure<span id="pressure"></span></div>
+            <div class="param"><img src="Image/humidite-icon.svg">Humidity<span id="humidity"></span></div>
+            <div class="param"><img src="Image/wind-icon.svg">Wind<span id="speed"></span></div>
+            <div class="param"><img src="Image/visibility-icon.svg">Visibility<span id="visibility"></span></div>
+            <div class="param"><img src="Image/sunrise-icon.svg">Feels like<span id="feels-like"></span></div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="container-found">
+            <input name="city" id="inputCity" placeholder="Enter city">
+            <div class="find-button"><img src="Image/find-icon.svg"></div>
+        </div>
+        <div class="week-forecast-header">Forecast</div>
+        <div class="week-forecast"></div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
