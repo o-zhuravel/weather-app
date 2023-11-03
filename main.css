@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     font-family: "Arial";
-    background: rgba(229, 225, 218, 0.77);
+    background: rgba(186, 225, 250, 0.89);
     border-radius: 20px;
 }
                 /*MAIN*/
@@ -116,32 +116,35 @@
     width: 15%;
     height: 30px;
     background: rgba(186, 225, 250, 0.89);
+}
 
+.menu .container-found .find-button:hover{
+        scale: 1.2;
 }
 
 .menu .container-found .find-button img {
     width: 30px;
 }
 
-.menu .week-forecast-header {
-    text-align: center;
-    font-size: 18px;
-    color: #5e5e5e;
-    background: rgba(186, 225, 250, 0.89);
-    padding: 5px 0 0 0;
-}
+/*.menu .week-forecast-header {*/
+/*    text-align: center;*/
+/*    font-size: 18px;*/
+/*    color: #5e5e5e;*/
+/*    background: rgba(186, 225, 250, 0.89);*/
+/*    padding: 5px 0 0 0;*/
+/*}*/
 
-.menu .week-forecast {
-    text-align: center;
-    color: #5e5e5e;
-    background: rgba(186, 225, 250, 0.89);
-    padding: 10px;
-}
+/*.menu .week-forecast {*/
+/*    text-align: center;*/
+/*    color: #5e5e5e;*/
+/*    background: rgba(186, 225, 250, 0.89);*/
+/*    padding: 10px;*/
+/*}*/
 
-.menu .week-forecast .container-day-forecast {
-    width: 50%;
-    padding: 5px;
-    margin: 10px auto;
-    background: rgba(84, 189, 246, 0.71);
-    border-radius: 10px;
-}
+/*.menu .week-forecast .container-day-forecast {*/
+/*    width: 50%;*/
+/*    padding: 5px;*/
+/*    margin: 10px auto;*/
+/*    background: rgba(84, 189, 246, 0.71);*/
+/*    border-radius: 10px;*/
+/*}*/

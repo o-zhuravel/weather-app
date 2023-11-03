@@ -18,11 +18,11 @@ tempNow.addEventListener("click", () => {
     if (celsius) {
         celsius = false;
         dataService.getWeatherToday();
-        dataService.getWeatherForecast();
+        // dataService.getWeatherForecast();
     } else {
         celsius = true;
         dataService.getWeatherToday();
-        dataService.getWeatherForecast();
+        // dataService.getWeatherForecast();
     }
 })
 
@@ -31,7 +31,7 @@ findBtn.addEventListener("click", () => {
     let inputCity = document.querySelector("#inputCity");
     city = inputCity.value;
     dataService.getWeatherToday();
-    dataService.getWeatherForecast();
+    // dataService.getWeatherForecast();
 });
 
 document.addEventListener("keydown", (e) => {
@@ -39,7 +39,7 @@ document.addEventListener("keydown", (e) => {
         let inputCity = document.querySelector("#inputCity");
         city = inputCity.value;
         dataService.getWeatherToday();
-        dataService.getWeatherForecast();
+        // dataService.getWeatherForecast();
     }
 });
 
@@ -51,7 +51,7 @@ let dataService = {
         fetch(urlToday)
         .then(response => response.json())
             .then(data => {
-                this.getWeatherForecast(data.coord.lat, data.coord.lon);
+                // this.getWeatherForecast(data.coord.lat, data.coord.lon);
                 let x = new WeatherTodayView(data);
                 x.showWeatherToday();
                 if (celsius) {
@@ -63,20 +63,20 @@ let dataService = {
             })
     },
 
-    getWeatherForecast (lat, lon) {
-
-        let urlForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + `${lat}` + "&lon=" + `${lon}` + "&exclude=current,minutely,hourly&appid=bf35cac91880cb98375230fb443a116f&units=metric";
-         fetch(urlForecast)
-             .then(response => response.json())
-             .then(dataForecast => {
-                 removeForecast();
-                 for (let i = 1; i < (dataForecast.daily.length - 3); i++) {
-                     let dayForecast = dataForecast.daily[i];
-                     let y = new WeatherForecastView(dayForecast);
-                     y.showForecast();
-                 }
-             })
-     },
+    // getWeatherForecast (lat, lon) {
+    //
+    //     let urlForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + `${lat}` + "&lon=" + `${lon}` + "&exclude=current,minutely,hourly&appid=bf35cac91880cb98375230fb443a116f&units=metric";
+    //      fetch(urlForecast)
+    //          .then(response => response.json())
+    //          .then(dataForecast => {
+    //              removeForecast();
+    //              for (let i = 1; i < (dataForecast.daily.length - 3); i++) {
+    //                  let dayForecast = dataForecast.daily[i];
+    //                  let y = new WeatherForecastView(dayForecast);
+    //                  y.showForecast();
+    //              }
+    //          })
+    //  },
 }
 
 class WeatherTodayView {
@@ -231,53 +231,53 @@ class WeatherTodayView {
     }
 }
 
-class WeatherForecastView {
-    constructor(weatherForecastDay) {
-        this.date = new Date(weatherForecastDay.dt *1000);
-        this.number = this.date.getDate().toString();
-        this.month = this.date.getMonth().toString();
-        this.temp = Math.floor(weatherForecastDay.temp.day);
-        this.weather = weatherForecastDay.weather[0].description;
-        this.icon = weatherForecastDay.weather[0].icon;
-    }
-
-    showForecast () {
-
-        if (this.number < 10) {
-            this.number = '0' + this.number;
-        }
-
-        if (this.month < 10) {
-            this.month = '0' + this.month;
-        }
-
-        let weekForecast = document.querySelector(".week-forecast");
-
-        let forecastDayContainer = document.createElement("div");
-        forecastDayContainer.classList.add("container-day-forecast");
-        let forecastDate = document.createElement("div");
-        let forecastTemp = document.createElement("div");
-        let forecastIcon = document.createElement("img");
-        forecastIcon.src = "https://openweathermap.org/img/wn/" + this.icon + "@2x.png";
-
-        forecastDate.innerHTML = `${this.number}.${this.month}`;
-
-        if (celsius) {
-            forecastTemp.innerHTML = this.temp + "°C";
-        } else {
-            forecastTemp.innerHTML = this.temp + "°F";
-        }
-
-        forecastDayContainer.append(forecastDate);
-        forecastDayContainer.append(forecastIcon);
-        forecastDayContainer.append(forecastTemp);
-        weekForecast.append(forecastDayContainer);
-    }
-}
+// class WeatherForecastView {
+//     constructor(weatherForecastDay) {
+//         this.date = new Date(weatherForecastDay.dt *1000);
+//         this.number = this.date.getDate().toString();
+//         this.month = this.date.getMonth().toString();
+//         this.temp = Math.floor(weatherForecastDay.temp.day);
+//         this.weather = weatherForecastDay.weather[0].description;
+//         this.icon = weatherForecastDay.weather[0].icon;
+//     }
+//
+//     showForecast () {
+//
+//         if (this.number < 10) {
+//             this.number = '0' + this.number;
+//         }
+//
+//         if (this.month < 10) {
+//             this.month = '0' + this.month;
+//         }
+//
+//         let weekForecast = document.querySelector(".week-forecast");
+//
+//         let forecastDayContainer = document.createElement("div");
+//         forecastDayContainer.classList.add("container-day-forecast");
+//         let forecastDate = document.createElement("div");
+//         let forecastTemp = document.createElement("div");
+//         let forecastIcon = document.createElement("img");
+//         forecastIcon.src = "https://openweathermap.org/img/wn/" + this.icon + "@2x.png";
+//
+//         forecastDate.innerHTML = `${this.number}.${this.month}`;
+//
+//         if (celsius) {
+//             forecastTemp.innerHTML = this.temp + "°C";
+//         } else {
+//             forecastTemp.innerHTML = this.temp + "°F";
+//         }
+//
+//         forecastDayContainer.append(forecastDate);
+//         forecastDayContainer.append(forecastIcon);
+//         forecastDayContainer.append(forecastTemp);
+//         weekForecast.append(forecastDayContainer);
+//     }
+// }
 
 dataService.getWeatherToday();
 
-function removeForecast () {
-    let weekForecast = document.querySelector(".week-forecast");
-    weekForecast.innerHTML = "";
-}
+// function removeForecast () {
+//     let weekForecast = document.querySelector(".week-forecast");
+//     weekForecast.innerHTML = "";
+// }
